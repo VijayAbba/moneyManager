@@ -1,0 +1,70 @@
+/* Write your CSS here */
+
+.money-details-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 120px;
+  margin-right: 120px;
+  border-radius: 20px;
+}
+
+.you-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.you-balance-card {
+  background-color: #ecfccb;
+  border: 2px solid #84cc16;
+}
+
+.you-Income-card {
+  background-color: #cffafe;
+  border: 2px solid #06b6d4;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.you-Expenses-card {
+  background-color: #ebe8f9;
+  border: 2px solid #7c3aed;
+}
+.tex-card {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.you-balance-image {
+  height: 100px;
+  margin-right: 30px;
+}
+.rupees {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .money-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .you-card {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

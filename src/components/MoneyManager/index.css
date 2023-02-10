@@ -1,0 +1,134 @@
+/* Write your CSS here */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.bg-container {
+  background-color: #ffffff;
+  margin: 0px;
+}
+
+.add-transaction-card {
+  border: 2px solid silver;
+}
+
+.welcome-card {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+  height: 200px;
+  margin-top: 10px;
+  background-size: cover;
+  margin-left: 120px;
+  margin-right: 120px;
+  border-radius: 20px;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.input-card {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.transaction-history-container {
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+
+.add-transaction-card {
+  padding: 30px;
+  width: 35%;
+}
+
+.input-card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+}
+.Add-button {
+  background-color: #0b69ff;
+  color: #ffffff;
+  border-width: 0px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+input {
+  margin-top: 10px;
+  padding: 5px;
+  outline: none;
+}
+.select-input {
+  margin-top: 10px;
+  padding: 5px;
+  outline: none;
+}
+.add-transaction-card {
+  border-radius: 14px;
+}
+
+.history-container {
+  border: 2px solid silver;
+  padding: 10px;
+  width: 35%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.history-main-heading {
+  padding: 10px;
+}
+
+.history-headings-card {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid silver;
+}
+
+.history-heading {
+  padding: 10px;
+  font-weight: bold;
+  width: 100px;
+}
+
+@media screen and (max-width: 767px) {
+  .welcome-card {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .transaction-history-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* justify-content: center;
+    align-items: center;
+  } */
+  }
+
+  .history-container {
+    border: 2px solid silver;
+    padding: 10px;
+    width: 100%;
+  }
+  .add-transaction-card {
+    padding: 30px;
+    width: 100%;
+  }
+}
