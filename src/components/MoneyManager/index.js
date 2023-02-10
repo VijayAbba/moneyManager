@@ -38,13 +38,15 @@ class MoneyManager extends Component {
   }
 
   onDeleteTransaction = id => {
-    this.setState(preValue => ({
-      transaction: preValue.transaction.filter(eachItem => eachItem.id !== id),
-    }))
+    const {transaction} = this.state
+    this.setState({
+      transaction: transaction.filter(eachItem => eachItem.id !== id),
+    })
   }
 
-  sumOfAllIncomeTransaction = actions => {
-    const listOfAmount = actions.map(eachItem => {
+  sumOfAllIncomeTransaction = () => {
+    const {transaction} = this.state
+    const listOfAmount = transaction.map(eachItem => {
       if (eachItem.Type === 'INCOME') {
         return eachItem.Amount
       }
@@ -58,8 +60,9 @@ class MoneyManager extends Component {
     return sumWithInitial
   }
 
-  sumOfAllExpensesTransaction = actions => {
-    const listOfAmount = actions.map(eachItem => {
+  sumOfAllExpensesTransaction = () => {
+    const {transaction} = this.state
+    const listOfAmount = transaction.map(eachItem => {
       if (eachItem.Type === 'EXPENSES') {
         return eachItem.Amount
       }
@@ -72,6 +75,9 @@ class MoneyManager extends Component {
     )
     return sumWithInitial
   }
+
+  yourBalance = () =>
+    this.sumOfAllIncomeTransaction() - this.sumOfAllExpensesTransaction()
 
   newTransactionAdd = () => {
     const {title, Amount, Type, transaction} = this.state
@@ -109,8 +115,10 @@ class MoneyManager extends Component {
   }
 
   render() {
-    const {title, Amount, Type, transaction} = this.state
-    console.log(title, Amount, Type)
+    const {title, Amount, transaction} = this.state
+    const IncomeValue = this.sumOfAllIncomeTransaction()
+    const ExpensesValue = this.sumOfAllExpensesTransaction()
+    const BalanceValue = this.yourBalance()
 
     return (
       <div className="bg-container">
@@ -120,7 +128,11 @@ class MoneyManager extends Component {
           <p>Welcome back to your Money Manager</p>
         </div>
 
-        <MoneyDetails moneyDetails={transaction} />
+        <MoneyDetails
+          IncomeValue={IncomeValue}
+          ExpensesValue={ExpensesValue}
+          BalanceValue={BalanceValue}
+        />
 
         <div className="transaction-history-container">
           <form className="add-transaction-card">
@@ -151,11 +163,13 @@ class MoneyManager extends Component {
                 onChange={this.OnChangeType}
                 id="selectinput"
                 className="select-input"
-                defaultValue="INCOME"
+                // defaultValue={transactionTypeOptions[0].optionId}
               >
                 <option
                   key={transactionTypeOptions[0].optionId}
                   value={transactionTypeOptions[0].optionId}
+                  //   selected
+                  // defaultValue
                 >
                   {transactionTypeOptions[0].displayText}
                 </option>
